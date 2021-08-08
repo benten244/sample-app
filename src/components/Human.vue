@@ -5,7 +5,7 @@
       <div v-else>😊</div>
     </div>
     <div class="karada" v-on:click="makeLaugh">
-      <div>💪👕💪</div>
+      <div>💪{{cloth.text}}💪</div>
     </div>
     <div class="ashi">
       <div>🦵🦵</div>
@@ -15,19 +15,24 @@
 
 <script>
 export default {
-    data(){
-        return{
-            isLaughing: false,
-        }
+  props: {
+    cloth:{
+      type: Object,
+      requiewd: true
+    }
+  },
+  data() {
+    return {
+      isLaughing: false,
+    }
+  },
+  methods: {
+    makeLaugh() {
+      this.isLaughing = true
     },
-    methods: {
-        makeLaugh(){
-            this.isLaughing = true
-        },
-    },
+  },
 }
 </script>
-
 
 <style>
 .human {
